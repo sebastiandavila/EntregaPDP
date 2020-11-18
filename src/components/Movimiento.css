@@ -1,0 +1,11 @@
+.Ingreso{
+    background-color: rgb(39, 199, 39);
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.Gasto{
+    background-color: rgb(241, 10, 10);
+    padding: 5px;
+    border-radius: 8px;
+}

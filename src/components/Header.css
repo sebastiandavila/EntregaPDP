@@ -1,0 +1,22 @@
+.bg-purple {
+    background-color: #007bff;
+    border: 2px solid black;
+}
+
+.TextoH {
+    color: white
+}
+
+.SaldoI{
+    padding-left: 400px;
+    color: white;
+}
+
+.SaldoF{
+    color:white
+}
+
+.InputSaldo {
+    border-radius: 5px;
+    background-color:white;
+}

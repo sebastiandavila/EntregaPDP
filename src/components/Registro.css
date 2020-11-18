@@ -1,0 +1,35 @@
+.bg-blue {
+    background-color: #007bff;
+}
+
+.size {
+    width: 35%;
+    border: 2px solid black;
+    color: black;
+}
+
+.ContenedorR {
+    background-color: #007bff;
+    width: 100%;
+    height: 40px;
+    
+}
+
+.form{
+padding: 10px;
+
+
+}
+
+.labelp{
+    font-size: 20px;
+
+}
+
+.botones{
+    padding-left: 100px;
+}
+
+h3{
+    color: white;
+}

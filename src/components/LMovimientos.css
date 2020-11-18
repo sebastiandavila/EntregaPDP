@@ -1,0 +1,43 @@
+.sizes {
+    width: 109%;
+    border: 2px solid black;
+    color: black;
+}
+
+.busqueda{
+    padding: 10px;
+    width: 40%;
+   
+
+}
+
+.busqueda1{
+    border-radius: 30px;
+}
+
+input[type=radio] {
+    border: 0px;
+    width: 15%;
+    height: 1.25em;
+}
+
+.tabla{
+   border: 1px solid rgb(192, 191, 191);
+}
+
+.divTabla{
+
+    padding: 30px;
+}
+
+.lapiz{
+    width: 100%;
+}
+
+table td:first-child{
+    width: 50px;
+  }
+
+table td:nth-child(2){
+    width: 50px;
+  }
