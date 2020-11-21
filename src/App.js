@@ -13,8 +13,8 @@ function App() {
 
 
   useEffect(() => {
-    let Calculo=0;
-    Calculo=SaldoInicial;
+    let Calculo = 0;
+    Calculo = SaldoInicial;
     movimientos.map((movimiento) => {
 
       if (movimiento.tipoMovimiento === "Gasto") {
@@ -24,7 +24,7 @@ function App() {
       else if (movimiento.tipoMovimiento === "Ingreso") {
         Calculo = parseInt(Calculo) + parseInt(movimiento.Cantidad);
       }
-      
+
     });
     setSaldoFinal(Calculo)
 
@@ -35,12 +35,44 @@ function App() {
 
   };
 
-  const removemovimientos = (id, tipoMovimiento, Cantidad) => {
-    
-    setMovimientos(movimientos.filter((movimiento) => movimiento.id !== id));
+  const updatemovimiento = (nuevo) => {
+    movimientos.map((movimiento) => {
+      if (nuevo.Cod === movimiento.id) {
+        movimiento.tipoMovimiento = nuevo.TypeMov;
+        movimiento.Nombre=nuevo.Name;
+        movimiento.Cantidad=nuevo.Cant;
+      }
+    });
 
- 
-      
+    movimientos.map((movimiento) => {
+      console.log(movimiento)
+
+    });
+setMovimientos([...movimientos]);
+  };
+
+  const removemovimientos = (id, tipoMovimiento, Cantidad) => {
+
+    let Calculo = 0;
+      Calculo = SaldoInicial;
+      movimientos.map((movimiento) => {
+        if (id !== movimiento.id) {
+          if (movimiento.tipoMovimiento === "Gasto") {
+            Calculo = Calculo - movimiento.Cantidad;
+          } else if (movimiento.tipoMovimiento === "Ingreso") {
+            Calculo = parseInt(Calculo) + parseInt(movimiento.Cantidad);
+          }
+        }
+      });
+
+      if(Calculo<0)
+      {
+       alert("No cuenta con saldo suficiente para eliminar el movimiento.")
+      }
+      else{
+        setMovimientos(movimientos.filter((movimiento) => movimiento.id !== id));
+      }
+  
   };
 
 
@@ -62,7 +94,11 @@ function App() {
 &nbsp;&nbsp;
 <div className="movimientos col-7">
           <LMovimientos movimientos={movimientos}
-          removemovimientos={removemovimientos}
+            removemovimientos={removemovimientos}
+            SaldoFinal={SaldoFinal}
+            SaldoInicial={SaldoInicial}
+            updatemovimiento={updatemovimiento}
+            setMovimientos={setMovimientos}
           />
         </div>
       </div>

@@ -28,17 +28,19 @@ export default function Registro({ addmovimiento, SaldoFinal, setSaldoFinal }) {
     e.preventDefault();
     if (movimiento.Nombre.trim() && movimiento.Cantidad > 0 && movimiento.tipoMovimiento !== "Tipo de movimiento") {
       if (movimiento.tipoMovimiento === "Gasto") {
-        if (movimiento.Cantidad <= SaldoFinal) {
+        console.log("cantidad del gasto: ",movimiento.Cantidad," SAlfdo final: ", SaldoFinal )
+        if (parseInt(movimiento.Cantidad) <= parseInt(SaldoFinal)) {
           addmovimiento({ ...movimiento, id: uuidv4() });
           //reset input
           setMovimiento({ ...movimiento, Nombre: "", Cantidad: 0, tipoMovimiento: "Tipo de movimiento" });
           setTitulo("¡Registro exitoso!");
-          setMensaje("El gasto fue agregado de manera correcta.toast-body.");
+          setMensaje("El gasto fue agregado de manera correcta");
           setShow(true);
         }
         else {
+          
           setTitulo("¡Error!");
-          setMensaje("No cuenta con saldo suficiente para realizar el movimiento.");
+          setMensaje("1.No cuenta con saldo suficiente para realizar el movimiento. ");
           setShow(true);
         }
       }
@@ -147,7 +149,7 @@ export default function Registro({ addmovimiento, SaldoFinal, setSaldoFinal }) {
             <Modal.Body><p>{mensaje}</p></Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
-                Close
+                Cerrar
           </Button>
             </Modal.Footer>
           </Modal>
